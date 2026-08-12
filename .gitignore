@@ -1,0 +1,24 @@
+# Gradle
+.gradle/
+build/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.classpath
+.project
+.settings/
+bin/
+
+# Minecraft 运行目录（Fabric loom runClient/runServer 生成）
+run/
+runs/
+
+# 系统文件
+.DS_Store
+Thumbs.db

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "boneskeleton",
+  "version": "${version}",
+  "name": "BoneSkeleton 骷髅近战化",
+  "description": "Turn skeletons and strays into melee creatures holding bones, bogged into a melee creature holding arrows: Damage 2.0, no bows dropped. Wither skeletons are unaffected.",
+  "authors": ["jingqi-ohhh"],
+  "license": "MIT",
+  "icon": "assets/boneskeleton/icon.png",
+  "entrypoints": {
+    "main": [
+      "com.jingqi.boneskeleton.BoneSkeletonMod"
+    ]
+  },
+  "mixins": [
+    "boneskeleton.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.1",
+    "java": ">=21"
+  }
+}
