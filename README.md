@@ -1,4 +1,4 @@
-# BoneSkeleton 骷髅近战化（Minecraft 26.1 Fabric）
+# BoneSkeleton 骷髅近战化（Minecraft 26.1.1 Fabric）
 
 > 非官方粉丝作品，与 Mojang 和 Microsoft 无关。
 
@@ -37,12 +37,12 @@
 gradlew build
 ```
 
-成品在 `build\libs\boneskeleton-1.2.0+26.1.jar`。
+成品在 `build\libs\boneskeleton-1.2.0+26.1.1.jar`。
 
 ## 怎么装进游戏
 
-把 `build\libs\boneskeleton-1.2.0+26.1.jar` 复制到你的
-**Minecraft 26.1 + Fabric** 实例的 `mods` 文件夹里，启动游戏即可。
+把 `build\libs\boneskeleton-1.2.0+26.1.1.jar` 复制到你的
+**Minecraft 26.1.1 + Fabric** 实例的 `mods` 文件夹里，启动游戏即可。
 
 ## 游戏内怎么测试
 
