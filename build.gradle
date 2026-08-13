@@ -1,5 +1,7 @@
 plugins {
-    id 'fabric-loom' version '1.17-SNAPSHOT'
+    // 26.x 起用 net.fabricmc.fabric-loom 这个新插件 ID（无映射模式）；
+    // 旧的 fabric-loom 插件要求必须配置映射，会报 "Configuration 'mappings' has no dependencies"
+    id 'net.fabricmc.fabric-loom' version '1.17-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -8,13 +10,6 @@ group = project.maven_group
 
 base {
     archivesName = project.archives_base_name
-}
-
-loom {
-    mixin {
-        // 1.21.11 是混淆版本，mixin 需要 refmap 才能在游戏里找到目标方法
-        useLegacyMixinAp = true
-    }
 }
 
 repositories {
@@ -31,10 +26,9 @@ repositories {
 }
 
 dependencies {
-    // Fabric & Minecraft（1.21.11 官方 mojmap 映射）
+    // Fabric & Minecraft（26.x 起 Mojang 不再混淆代码，无需任何映射）
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings loom.officialMojangMappings()
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 }
 
 processResources {
@@ -47,13 +41,13 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    it.options.release = 21
+    it.options.release = 25
 }
 
 java {
     withSourcesJar()
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
 }
 
 jar {

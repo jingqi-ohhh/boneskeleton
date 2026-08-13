@@ -74,11 +74,15 @@ public abstract class AbstractSkeletonMixin {
      * 这里把这次的 is 判断改成永远返回 false，
      * 原版逻辑会自动移除弓 AI、改用近战 AI。
      * 这样即使骷髅被命令刷出弓或从地上捡了弓，也只会近战。
+     *
+     * 注意：26.x 的调用点字节码是 ItemStack.is(Ljava/lang/Object;)Z——
+     * 这是 TypedInstance<T> 泛型默认方法 is(T) 擦除后的签名，Java 源码里没有 is(Object) 重载，
+     * 所以对非目标生物保留原行为时要强转回 Item 调用（原调用点传入的就是 Items.BOW，实参必为 Item）。
      */
-    @Redirect(method = "reassessWeaponGoal", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
-    private boolean boneskeleton$neverBow(ItemStack stack, Item item) {
+    @Redirect(method = "reassessWeaponGoal", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Ljava/lang/Object;)Z"))
+    private boolean boneskeleton$neverBow(ItemStack stack, Object item) {
         if (!boneskeleton$isMeleeSkeleton()) {
-            return stack.is(item);
+            return stack.is((Item) item);
         }
         return false;
     }
