@@ -3,7 +3,7 @@
   "id": "boneskeleton",
   "version": "${version}",
   "name": "BoneSkeleton 骷髅近战化",
-  "description": "Turn skeletons into melee creatures holding bones, strays holding fish, bogged holding arrows: Damage 2.0, no bows dropped. Wither skeletons are unaffected.",
+  "description": "Turn skeletons into melee creatures: skeletons hold bones, strays hold fish, bogged hold poisoned arrows. All melee, damage 2.0, no bows dropped, extra arrow drops. Wither skeletons are unaffected.",
   "authors": ["jingqi-ohhh"],
   "license": "MIT",
   "icon": "assets/boneskeleton/icon.png",

@@ -9,8 +9,8 @@ import org.slf4j.LoggerFactory;
  *
  * 主要逻辑全部在 mixin 包内：
  * - AbstractSkeletonEntityMixin：出生装备换成近战武器 + 强制近战 AI
- *   （普通骷髅拿骨头，流浪者拿鱼，沼骸拿箭）
- * - data/minecraft/loot_table/entities/*.json：骷髅只掉骨头，流浪者只掉鱼，沼骸只掉箭
+ *   （普通骷髅拿骨头，流浪者拿鱼，沼骸拿剧毒之箭）
+ * - data/minecraft/loot_table/entities/*.json：骷髅掉骨头 + 箭，流浪者掉鱼 + 迟缓之箭，沼骸掉箭 + 剧毒之箭
  */
 public class BoneSkeletonMod implements ModInitializer {
 
@@ -19,6 +19,6 @@ public class BoneSkeletonMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        LOGGER.info("[BoneSkeleton] 骷髅近战化已生效：骷髅持骨头，流浪者持鱼，沼骸持箭，全部近战攻击，伤害 2.0");
+        LOGGER.info("[BoneSkeleton] 骷髅近战化已生效：骷髅持骨头，流浪者持鱼，沼骸持剧毒之箭，全部近战攻击，伤害 2.0");
     }
 }

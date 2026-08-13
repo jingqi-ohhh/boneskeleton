@@ -6,10 +6,13 @@
 
 - **普通骷髅**出生时主手拿**骨头**（原版是弓）
 - **流浪者**主手拿**鱼**
-- **沼骸**主手拿**箭**
+- **沼骸**主手拿**剧毒之箭**（鼠标悬停可以看到药水属性）
 - 三种都只进行**近战攻击**（哪怕是命令刷出弓或捡到弓也不射箭）
 - 近战伤害 **2.0**（1 颗心，原版默认值，未做修改）
-- 掉落物**不再有弓**：骷髅只掉骨头，流浪者只掉鱼，沼骸只掉箭
+- 掉落物**不再有弓**，并追加了箭类掉落：
+  - 骷髅：骨头 + **箭**（0-2 支）
+  - 流浪者：鱼 + **迟缓之箭**
+  - 沼骸：箭 + **剧毒之箭**
 - **凋灵骷髅不受影响**（它原版就是持剑近战）
 
 ## 文件说明
@@ -18,9 +21,9 @@
 |------|------|
 | `src/main/java/.../mixin/AbstractSkeletonEntityMixin.java` | 核心修改（2 处 Mixin） |
 | `src/main/java/.../BoneSkeletonMod.java` | 模组入口 |
-| `src/main/resources/data/minecraft/loot_table/entities/skeleton.json` | 骷髅掉落表（只掉骨头） |
-| `src/main/resources/data/minecraft/loot_table/entities/stray.json` | 流浪者掉落表（只掉鱼） |
-| `src/main/resources/data/minecraft/loot_table/entities/bogged.json` | 沼骸掉落表（只掉箭） |
+| `src/main/resources/data/minecraft/loot_table/entities/skeleton.json` | 骷髅掉落表（骨头 + 箭） |
+| `src/main/resources/data/minecraft/loot_table/entities/stray.json` | 流浪者掉落表（鱼 + 迟缓之箭） |
+| `src/main/resources/data/minecraft/loot_table/entities/bogged.json` | 沼骸掉落表（箭 + 剧毒之箭） |
 | `src/main/resources/assets/boneskeleton/icon.png` | 模组图标 |
 
 ## 怎么构建 jar
@@ -31,11 +34,11 @@
 gradlew build
 ```
 
-成品在 `build\libs\boneskeleton-1.1.1+1.21.1.jar`。
+成品在 `build\libs\boneskeleton-1.2.0+1.21.1.jar`。
 
 ## 怎么装进游戏
 
-把 `build\libs\boneskeleton-1.1.1+1.21.1.jar` 复制到你的
+把 `build\libs\boneskeleton-1.2.0+1.21.1.jar` 复制到你的
 **Minecraft 1.21.1 + Fabric** 实例的 `mods` 文件夹里，启动游戏即可。
 
 ## 游戏内怎么测试
@@ -46,10 +49,10 @@ gradlew build
    - `/summon minecraft:stray`
    - `/summon minecraft:bogged`
 3. 检查：
-   - 骷髅手里拿的是**骨头**，流浪者手里拿的是**鱼**，沼骸手里拿的是**箭** ✔
+   - 骷髅手里拿的是**骨头**，流浪者手里拿的是**鱼**，沼骸手里拿的是**剧毒之箭** ✔
    - 三种都会**跑过来打你**，而不是站远处射箭 ✔
    - 打你一下掉 **1 颗心**（普通难度）✔
-   - 骷髅掉落物只有**骨头**，流浪者只有**鱼**，沼骸只有**箭** ✔
+   - 掉落物：骷髅掉**骨头 + 箭**，流浪者掉**鱼 + 迟缓之箭**，沼骸掉**箭 + 剧毒之箭** ✔
 4. 顺便刷一只**凋灵骷髅**（`/summon minecraft:wither_skeleton`），应该还是持剑近战的老样子 ✔（证明没误伤其他怪物）
 
 ## 想改伤害的话

@@ -1,5 +1,7 @@
 package com.jingqi.boneskeleton.mixin;
 
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.AbstractSkeletonEntity;
@@ -9,6 +11,7 @@ import net.minecraft.entity.mob.StrayEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.potion.Potions;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.LocalDifficulty;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
  * 核心修改：把三种骷髅类生物（普通骷髅、流浪者、沼骸）从「持弓远程」改成近战——
- * 普通骷髅拿骨头，流浪者拿鱼，沼骸拿箭。
+ * 普通骷髅拿骨头，流浪者拿鱼，沼骸拿剧毒之箭。
  *
  * initEquipment 声明在 MobEntity、updateAttackType 声明在 AbstractSkeletonEntity，
  * 流浪者和沼骸都没有覆写这两个方法，全部继承自父类，
@@ -42,21 +45,22 @@ public abstract class AbstractSkeletonEntityMixin {
     /**
      * 出生初始化装备时，原版会给主手塞一把弓；
      * 这里在原版逻辑执行完之后，把主手的弓替换成近战武器：
-     * 沼骸拿箭，流浪者拿鱼，普通骷髅拿骨头。
+     * 沼骸拿剧毒之箭（药水箭 + 剧毒药水组件），流浪者拿鱼，普通骷髅拿骨头。
      */
     @Inject(method = "initEquipment", at = @At("RETURN"))
     private void boneskeleton$replaceBowWithMeleeWeapon(Random random, LocalDifficulty localDifficulty, CallbackInfo ci) {
-        Item weapon;
+        ItemStack weapon;
         if ((Object) this instanceof BoggedEntity) {
-            weapon = Items.ARROW;
+            weapon = new ItemStack(Items.TIPPED_ARROW);
+            weapon.set(DataComponentTypes.POTION_CONTENTS, PotionContentsComponent.DEFAULT.with(Potions.POISON));
         } else if ((Object) this instanceof StrayEntity) {
-            weapon = Items.COD;
+            weapon = new ItemStack(Items.COD);
         } else if (boneskeleton$isMeleeSkeleton()) {
-            weapon = Items.BONE;
+            weapon = new ItemStack(Items.BONE);
         } else {
             return;
         }
-        ((LivingEntity) (Object) this).equipStack(EquipmentSlot.MAINHAND, new ItemStack(weapon));
+        ((LivingEntity) (Object) this).equipStack(EquipmentSlot.MAINHAND, weapon);
     }
 
     /**
