@@ -8,7 +8,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:bone",
+          "name": "minecraft:cod",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -53,7 +53,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:bone",
+          "name": "minecraft:cod",
           "functions": [
             {
               "function": "minecraft:set_count",
