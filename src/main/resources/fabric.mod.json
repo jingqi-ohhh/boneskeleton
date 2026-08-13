@@ -3,7 +3,7 @@
   "id": "boneskeleton",
   "version": "${version}",
   "name": "BoneSkeleton 骷髅近战化",
-  "description": "Turn skeletons into melee creatures: skeletons hold bones, strays hold fish, bogged hold poisoned arrows. All melee, damage 2.0, no bows dropped, extra arrow drops. Wither skeletons are unaffected.",
+  "description": "Turn skeletons into melee creatures: skeletons hold bones, strays hold fish, bogged hold poisoned arrows, parched hold dead bushes. All melee, damage 2.0, no bows dropped, extra arrow drops. Wither skeletons are unaffected.",
   "authors": ["jingqi-ohhh"],
   "license": "MIT",
   "icon": "assets/boneskeleton/icon.png",
@@ -16,8 +16,8 @@
     "boneskeleton.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.16.0",
-    "minecraft": "~1.21.1",
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~1.21.11",
     "java": ">=21"
   }
 }

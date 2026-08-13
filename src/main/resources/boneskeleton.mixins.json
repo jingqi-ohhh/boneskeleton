@@ -3,7 +3,7 @@
   "package": "com.jingqi.boneskeleton.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "AbstractSkeletonEntityMixin"
+    "AbstractSkeletonMixin"
   ],
   "injectors": {
     "defaultRequire": 1
