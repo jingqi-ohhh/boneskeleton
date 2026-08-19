@@ -58,5 +58,3 @@ gradlew build
 ## 想改伤害的话
 
 原版骷髅近战伤害默认就是 2.0（普通难度 1 颗心），所以本模组没有改伤害代码。
-以后想调整的话，告诉 Claude 目标数值，在 `AbstractSkeletonEntityMixin`
-里给骷髅的属性加上 `ATTACK_DAMAGE` 即可（僵尸空手是 3.0，可作参考）。
