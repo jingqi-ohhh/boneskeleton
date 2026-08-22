@@ -1,3 +1,42 @@
+# 🦴 BoneSkeleton Melee Skeletons v1.1.1+1.21.1
+Turn the three vanilla skeleton variants into melee‑only mobs — **Skeletons wield bones**, **Strays wield fish**, **Bogged wield arrows**. They no longer shoot arrows from afar.
+
+> Unofficial fan‑made mod, not affiliated with Mojang or Microsoft.
+
+## ✨ Features
+- 🦴 **Skeleton**: Melee attacker holding a bone, 2.0 attack damage, drops only bones
+- 🐟 **Stray**: Melee attacker holding a fish, 2.0 attack damage, drops only fish
+- 🏹 **Bogged**: Melee attacker holding an arrow, 2.0 attack damage, drops only arrows
+- 🚫 The three skeletons no longer drop bows or arrow ammunition (Bogged drop the arrows they hold)
+- ✅ **Wither Skeletons remain untouched**, keeping vanilla sword‑wielding melee behaviour
+
+## 📝 v1.1.1 Changelog
+- ✨ Changed Stray main‑hand item from bone to **cod**, loot drops updated to match
+- Skeleton and Bogged unchanged
+
+## 📦 Installation
+1. Install [Fabric Loader](https://fabricmc.net/use/) (0.16.0 or newer) and Java 21
+2. Download `boneskeleton-1.1.1+1.21.1.jar` below
+3. Place it inside your `.minecraft/mods/` folder and launch the game
+
+## ⚠️ Requirements
+| Item | Version |
+|---|---|
+| Minecraft | **1.21.1** |
+| Fabric Loader | ≥ 0.16.0 |
+| Java | ≥ 21 |
+
+## 🎮 In‑game Testing
+```
+/summon minecraft:skeleton   → Chases player holding bone, drops bones
+/summon minecraft:stray      → Chases player holding fish, drops fish
+/summon minecraft:bogged     → Chases player holding arrow, drops arrows
+```
+
+## 📄 License
+[MIT](LICENSE) © jingqi‑ohhh
+
+
 # BoneSkeleton 骷髅近战化（Minecraft 1.21.1 Fabric）
 
 > 非官方粉丝作品，与 Mojang 和 Microsoft 无关。
