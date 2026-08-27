@@ -12,7 +12,7 @@ base {
 
 loom {
     mixin {
-        // 1.21.11 是混淆版本，mixin 需要 refmap 才能在游戏里找到目标方法
+        // 1.20.1 是混淆版本，mixin 需要 refmap 才能在游戏里找到目标方法
         useLegacyMixinAp = true
     }
 }
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    // Fabric & Minecraft（1.21.11 官方 mojmap 映射）
+    // Fabric & Minecraft（1.20.1 官方 mojmap 映射）
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
@@ -47,13 +47,13 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    it.options.release = 21
+    it.options.release = 17
 }
 
 java {
     withSourcesJar()
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {

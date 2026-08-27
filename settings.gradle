@@ -1,4 +1,8 @@
 pluginManagement {
+    // 自动下载缺失的 JDK toolchain（没有本地 JDK 17 时从 foojay 获取）
+    plugins {
+        id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+    }
     repositories {
         maven {
             name = 'Fabric'
